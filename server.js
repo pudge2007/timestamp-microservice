@@ -35,9 +35,10 @@ var server = http.createServer(function(req, res){
 
 });
 
-server.listen(8080, function () {
-  console.log('listening server on port 8080...')
-});
+	server.listen(process.env.PORT || 8080, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
+  });
 
 function output (unix, natural) {
   return { unixtime : unix, natural: natural }
